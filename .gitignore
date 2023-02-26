@@ -78,6 +78,12 @@ pubspec.lock
 **/node_modules/*
 **/.firebaserc
 
+firebase_options.dart
+/android/app/google-services.json
+/ios/firebase_app_id_file.json
+/ios/Runner/GoogleService-Info.plist
+/macos/firebase_app_id_file.json
+
 ### Firebase Patch ###
 .runtimeconfig.json
 .firebase/
