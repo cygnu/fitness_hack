@@ -4,8 +4,13 @@ import 'package:flutter/cupertino.dart';
 final db = FirebaseFirestore.instance;
 
 Future<void> getMenu() async {
-  const menuId = 1;
-  DocumentReference docRef = db.collection("menu").doc("$menuId");
-  DocumentSnapshot snapshot = docRef.get() as DocumentSnapshot<Object?>;
-  debugPrint(snapshot.data().toString());
+  const menuId = "ZycEUzoOUxB8e8qeFN8Z";
+  DocumentReference docRef = db.collection("menu").doc(menuId);
+  await docRef.get().then(
+    (DocumentSnapshot doc) {
+      final data = doc.data() as Map<String, dynamic>;
+      debugPrint(data.toString());
+    },
+    onError: (e) => debugPrint("Error getting document: $e"),
+  );
 }
