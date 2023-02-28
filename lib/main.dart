@@ -1,5 +1,4 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:fitness_hack/firebase.dart';
 import 'package:flutter/material.dart';
 
 import 'firebase_options.dart';
@@ -30,7 +29,7 @@ class FitnessApp extends StatelessWidget {
         body: Center(
           child: ElevatedButton(
             child: const Text('Push'),
-            onPressed: () => getMenu(),
+            onPressed: () => {},
           ),
         ),
       ),
