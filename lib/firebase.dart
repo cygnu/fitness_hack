@@ -13,9 +13,10 @@ Future<UserCredential> signInWithEmailAndPassword(
   return userCredential;
 }
 
-Future<void> addUserToFirestore(UserCredential userCredential) async {
+Future<void> addUser(UserCredential userCredential, [String? userName]) async {
   await db.collection('users').doc(userCredential.user!.uid).set({
     'email': userCredential.user!.email,
+    'user_name': userName,
     'created_at': FieldValue.serverTimestamp(),
     'updated_at': FieldValue.serverTimestamp(),
   });
