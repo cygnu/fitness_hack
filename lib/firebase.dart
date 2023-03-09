@@ -21,3 +21,24 @@ Future<void> addUser(UserCredential userCredential, [String? userName]) async {
     'updated_at': FieldValue.serverTimestamp(),
   });
 }
+
+Future<void> addWorkout(
+    String userId, String workoutName, String startTime, String endTime) async {
+  await db.collection('workouts').doc().set({
+    'user_id': userId,
+    'workout_name': workoutName,
+    'parts': [],
+    'start_time': startTime,
+    'end_time': endTime,
+  });
+}
+
+Future<void> addSet(String workoutId, String exerciseId, int reps, int weight,
+    [int? interval]) async {
+  await db.collection('workouts').doc(workoutId).collection('sets').doc().set({
+    'exercise_id': exerciseId,
+    'reps': reps,
+    'weight': weight,
+    'interval': interval,
+  });
+}
