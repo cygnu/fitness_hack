@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 final db = FirebaseFirestore.instance;
@@ -61,4 +62,61 @@ Future<void> addEvent(String eventName, String userId, String workoutId,
     'start_time': startTime,
     'end_time': endTime,
   });
+}
+
+Future<void> getUser(String userId) async {
+  DocumentSnapshot snapshot = await db.collection('users').doc(userId).get();
+  Map<String, dynamic>? data = snapshot.data() as Map<String, dynamic>?;
+  if (data != null) {
+    debugPrint('Email: ${data['email']}');
+  } else {
+    debugPrint('User not found.');
+  }
+}
+
+Future<void> getWorkout(String workoutId) async {
+  DocumentSnapshot snapshot =
+      await db.collection('workouts').doc(workoutId).get();
+  Map<String, dynamic>? data = snapshot.data() as Map<String, dynamic>?;
+  if (data != null) {
+    debugPrint('Workout name: ${data['workout_name']}');
+  } else {
+    debugPrint('Workout not found.');
+  }
+}
+
+Future<void> getSet(String workoutId, String setId) async {
+  DocumentSnapshot snapshot = await db
+      .collection('workouts')
+      .doc(workoutId)
+      .collection('sets')
+      .doc(setId)
+      .get();
+  Map<String, dynamic>? data = snapshot.data() as Map<String, dynamic>?;
+  if (data != null) {
+    debugPrint('Set ID: $setId');
+  } else {
+    debugPrint('Set not found.');
+  }
+}
+
+Future<void> getExercise(String exerciseId) async {
+  DocumentSnapshot snapshot =
+      await db.collection('exercises').doc(exerciseId).get();
+  Map<String, dynamic>? data = snapshot.data() as Map<String, dynamic>?;
+  if (data != null) {
+    debugPrint('Exercise name: ${data['exercise_name']}');
+  } else {
+    debugPrint('Exercise not found.');
+  }
+}
+
+Future<void> getEvent(String eventId) async {
+  DocumentSnapshot snapshot = await db.collection('events').doc(eventId).get();
+  Map<String, dynamic>? data = snapshot.data() as Map<String, dynamic>?;
+  if (data != null) {
+    debugPrint('Event name: ${data['event_name']}');
+  } else {
+    debugPrint('Event not found.');
+  }
 }
