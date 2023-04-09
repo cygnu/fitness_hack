@@ -1,3 +1,4 @@
+import 'package:fitness_hack/components/rounded_button.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
