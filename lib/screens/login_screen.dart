@@ -1,5 +1,10 @@
+import 'package:fitness_hack/components/constants.dart';
 import 'package:fitness_hack/components/rounded_button.dart';
+import 'package:fitness_hack/firebase.dart';
 import 'package:flutter/material.dart';
+
+String email = '';
+String password = '';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -18,7 +23,9 @@ class LoginScreen extends StatelessWidget {
               keyboardType: TextInputType.emailAddress,
               autofocus: true,
               decoration: kTextFieldDecoration.copyWith(hintText: 'Email'),
-              onChanged: (value) {},
+              onChanged: (value) {
+                email = value;
+              },
             ),
             const SizedBox(
               height: 7.0,
@@ -37,7 +44,9 @@ class LoginScreen extends StatelessWidget {
             RoundedButton(
               text: 'Login',
               colour: Colors.lightBlueAccent,
-              onPressed: () {},
+              onPressed: () async {
+                await signInWithEmailAndPassword(email, password);
+              },
             ),
           ],
         ),
