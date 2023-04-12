@@ -45,7 +45,10 @@ class LoginScreen extends StatelessWidget {
               text: 'Login',
               colour: Colors.lightBlueAccent,
               onPressed: () async {
-                await signInWithEmailAndPassword(email, password);
+                await signInWithEmailAndPassword(email, password)
+                    .then((userCredential) {
+                  Navigator.pushNamed(context, MainScreen.route);
+                });
               },
             ),
           ],
