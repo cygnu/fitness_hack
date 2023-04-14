@@ -7,9 +7,10 @@ import 'package:flutter/material.dart';
 String email = '';
 String password = '';
 
-class LoginScreen extends StatelessWidget {
-  static const String route = '/login';
-  const LoginScreen({Key? key}) : super(key: key);
+class AuthenticationScreen extends StatelessWidget {
+  static const String loginRoute = '/login';
+  static const String registerRoute = '/register';
+  const AuthenticationScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

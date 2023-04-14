@@ -1,5 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:fitness_hack/screens/login_screen.dart';
+import 'package:fitness_hack/screens/authentication_screen.dart';
 import 'package:fitness_hack/screens/main_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +22,7 @@ class FitnessApp extends StatelessWidget {
       title: 'Fitness Hack',
       initialRoute: '/login',
       routes: {
-        '/login': (context) => const LoginScreen(),
+        '/login': (context) => const AuthenticationScreen(),
         '/': (context) => const MainScreen(),
       },
     );
