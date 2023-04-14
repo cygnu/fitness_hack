@@ -44,11 +44,38 @@ class AuthenticationScreen extends StatelessWidget {
               height: 21.0,
             ),
             RoundedButton(
-              text: 'Login',
+              text: ModalRoute.of(context)?.settings.name == registerRoute
+                  ? 'Register'
+                  : 'Login',
               colour: Colors.lightBlueAccent,
               onPressed: () async {
                 authenticate(false, context);
               },
+            ),
+            const SizedBox(
+              height: 7.0,
+            ),
+            Align(
+              alignment: Alignment.centerRight,
+              child: TextButton(
+                child: Text(
+                  ModalRoute.of(context)?.settings.name == registerRoute
+                      ? 'Already have an account? Login'
+                      : 'Don\'t have an account? Register',
+                  style: const TextStyle(
+                    color: Colors.blue,
+                    decoration: TextDecoration.underline,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    ModalRoute.of(context)?.settings.name == registerRoute
+                        ? loginRoute
+                        : registerRoute,
+                  );
+                },
+              ),
             ),
           ],
         ),

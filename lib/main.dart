@@ -22,6 +22,7 @@ class FitnessApp extends StatelessWidget {
       title: 'Fitness Hack',
       initialRoute: '/login',
       routes: {
+        '/register': (context) => const AuthenticationScreen(),
         '/login': (context) => const AuthenticationScreen(),
         '/': (context) => const MainScreen(),
       },
