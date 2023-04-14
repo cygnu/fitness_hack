@@ -1,12 +1,14 @@
 import 'package:fitness_hack/components/constants.dart';
 import 'package:fitness_hack/components/rounded_button.dart';
 import 'package:fitness_hack/firebase.dart';
+import 'package:fitness_hack/screens/main_screen.dart';
 import 'package:flutter/material.dart';
 
 String email = '';
 String password = '';
 
 class LoginScreen extends StatelessWidget {
+  static const String route = '/login';
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
