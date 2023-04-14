@@ -1,7 +1,6 @@
+import 'package:fitness_hack/components/authenticate.dart';
 import 'package:fitness_hack/components/constants.dart';
 import 'package:fitness_hack/components/rounded_button.dart';
-import 'package:fitness_hack/firebase.dart';
-import 'package:fitness_hack/screens/main_screen.dart';
 import 'package:flutter/material.dart';
 
 String email = '';
@@ -48,10 +47,7 @@ class AuthenticationScreen extends StatelessWidget {
               text: 'Login',
               colour: Colors.lightBlueAccent,
               onPressed: () async {
-                await signInWithEmailAndPassword(email, password)
-                    .then((userCredential) {
-                  Navigator.pushNamed(context, MainScreen.route);
-                });
+                authenticate(false, context);
               },
             ),
           ],
