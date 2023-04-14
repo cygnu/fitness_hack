@@ -1,0 +1,1 @@
+void authenticate(bool isSignIn, BuildContext context)

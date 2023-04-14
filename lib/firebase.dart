@@ -14,6 +14,16 @@ Future<UserCredential> signInWithEmailAndPassword(
   return userCredential;
 }
 
+Future<UserCredential> signUpWithEmailAndPassword(
+    String email, String password) async {
+  final UserCredential userCredential =
+      await _auth.createUserWithEmailAndPassword(
+    email: email,
+    password: password,
+  );
+  return userCredential;
+}
+
 Future<void> addUser(UserCredential userCredential, [String? userName]) async {
   await db.collection('users').doc(userCredential.user!.uid).set({
     'email': userCredential.user!.email,
