@@ -43,6 +43,15 @@ Future<void> addWorkout(
   });
 }
 
+Future<void> addExercise(
+    String exerciseName, String description, List<String> parts) async {
+  await db.collection('exercises').doc().set({
+    'exercise_name': exerciseName,
+    'description': description,
+    'parts': parts,
+  });
+}
+
 Future<void> addSet(String workoutId, String exerciseId, int reps, int weight,
     [int? interval]) async {
   await db.collection('workouts').doc(workoutId).collection('sets').doc().set({
@@ -50,15 +59,6 @@ Future<void> addSet(String workoutId, String exerciseId, int reps, int weight,
     'reps': reps,
     'weight': weight,
     'interval': interval,
-  });
-}
-
-Future<void> addExercise(
-    String exerciseName, String description, List<String> parts) async {
-  await db.collection('exercises').doc().set({
-    'exercise_name': exerciseName,
-    'description': description,
-    'parts': parts,
   });
 }
 
