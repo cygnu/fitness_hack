@@ -20,7 +20,7 @@ class FitnessApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Fitness Hack',
-      initialRoute: '/login',
+      initialRoute: '/',
       routes: {
         '/register': (context) => const AuthenticationScreen(),
         '/login': (context) => const AuthenticationScreen(),
